@@ -1,4 +1,4 @@
-//@author Freja Østerbøg & Carl Ulsøe
+//@author Freja Ã˜sterb1Ã¸g & Carl UlsÃ¸e
 
 public class DieCup {
     private Die d1;   //first die
@@ -8,7 +8,7 @@ public class DieCup {
     public DieCup() {
         d1 = new Die();
         d2 = new Die();
-        maxEyes = 0;
+        resetMaxEyes();
     }
 
     public void roll() {

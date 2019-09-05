@@ -1,7 +1,7 @@
 /**
  * This class models a DieCup (raflebaeger)
  * 
- * @author Carl UlsÃ¸e Christensen
+ * @author Carl UlsÃ¸e Christensen og Freja Østerbøg
  * @version 2017-05-01
  **/
 public class DieCup {

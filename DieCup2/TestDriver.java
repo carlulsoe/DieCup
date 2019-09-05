@@ -2,11 +2,10 @@
 /**
  * Tester dieCup
  * 
- * @author Carl UlsÃ¸e Christensen
+ * @author Carl Ulsøe Christensen og Freja Østerbøg
  * @version 1.0
  */
-public class TestDriver
-{    
+public class TestDriver   {    
     public static void test(int sides1, int sides2){
         DieCup cup = new DieCup(sides1, sides2);
         cup.roll();

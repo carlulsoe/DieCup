@@ -1,6 +1,5 @@
 #BlueJ class context
 comment0.target=DieCup
-comment0.text=\r\n\ This\ class\ models\ a\ DieCup\ (raflebaeger)\r\n\ \r\n\ @author\ Kurt\ Jensen\r\n\ @version\ 2017-05-01\r\n
 comment1.params=
 comment1.target=DieCup()
 comment2.params=
@@ -12,5 +11,5 @@ comment4.target=int\ getMaxEyes()
 comment5.params=
 comment5.target=void\ resetMaxEyes()
 comment6.params=noOfRolls
-comment6.target=void\ mulitpleRolls(int)
+comment6.target=void\ multipleRolls(int)
 numComments=7

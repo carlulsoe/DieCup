@@ -2,12 +2,9 @@
 import java.util.Random;
 
 /**
- * This class models a Die (terning)
- * 
- * @author Carl UlsÃ¸e Christensen
- * @version 2017-01-05
+ * @author Carl Ulsøe Christensen og Freja Østerbøg
  */
-import java.util.Random;
+
 public class Die {
     private Random random;   //gen. of random numbers
     private int eyes;        //number of eyes shown

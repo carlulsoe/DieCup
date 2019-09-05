@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=TestDriver
-comment0.text=\r\n\ Tester\ dieCup\r\n\ \r\n\ @author\ Carl\ Uls\u00F8e\ Christensen\r\n\ @version\ 1.0\r\n
+comment0.text=\r\n\ Tester\ dieCup\r\n\ \r\n\ @author\ Carl\ Uls\u00F8e\ Christensen\ og\ Freja\ \u00D8sterb\u00F8g\r\n\ @version\ 1.0\r\n
 comment1.params=sides1\ sides2
 comment1.target=void\ test(int,\ int)
 comment2.params=noOfRolls\ sides1\ sides2
