@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.target=TestDriver
+comment0.text=\r\n\ Tester\ dieCup\r\n\ \r\n\ @author\ Carl\ Uls\u00F8e\ Christensen\r\n\ @version\ 1.0\r\n
+comment1.params=sides1\ sides2
+comment1.target=void\ test(int,\ int)
+comment2.params=noOfRolls\ sides1\ sides2
+comment2.target=void\ testMulitple(int,\ int,\ int)
+comment3.params=s1\ s2\ s3\ s4\ noOfRolls
+comment3.target=void\ compareDieCups(int,\ int,\ int,\ int,\ int)
+numComments=4
