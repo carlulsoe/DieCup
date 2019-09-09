@@ -89,16 +89,27 @@ public class Turtle extends Actor {
      * @param x    x coordinate.
      * @param y    y coordinate.
      */
-    public void jumpTo(double x, double y) {}
+    public void jumpTo(double x, double y) {
+        penUp();
+        moveTo(x, y);
+        penDown();
+    }
 
     /**
      * Jumps as specified without drawing and without turning.
-     * Ends with a penDow.
+     * Ends with a penDown.
      *
      * @param x     Distance forward.
      * @param y     Distance sideways (+ is right and - is left).
      */
-    public void jump(double x, double y) {}
+    public void jump(double x, double y) {
+        penUp();
+        move(x);
+        turn(90);
+        move(y);
+        turn(-90);
+        penDown();
+    }
 
     /**
      * Draws a number of squares "behind" each other.
