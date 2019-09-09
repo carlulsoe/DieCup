@@ -80,7 +80,15 @@ public class Turtle extends Actor {
      * @param delta    Difference in length between two succeeding sides
      *                 (equal to shortest side).
      */
-    public void spiral(int n, double delta) {}
+    public void spiral(int n, double delta) {
+        double width = 200;
+        for (int j = 0; j < width; j++)  {
+            pause(200);
+            move(width);
+            turn(360.0/n);
+            width =  width - delta;
+        }
+    }
 
     /**
      * Jumps to specified coordinates without drawing and without turning.
