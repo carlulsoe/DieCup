@@ -1,4 +1,3 @@
-
 /**
  * Turtle for drawing pictures on a World object.
  *
@@ -67,7 +66,12 @@ public class Turtle extends Actor {
      *
      * @param size   Length of each side.
      */
-    public void star(double size) {}
+    public void star(double size) {
+        for (int i=1; i<=5; i++) {
+            move(size);
+            turn(180-(180.0/5));
+        }
+    }
 
     /**
      * Draws a spiral.
