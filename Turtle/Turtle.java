@@ -81,12 +81,12 @@ public class Turtle extends Actor {
      *                 (equal to shortest side).
      */
     public void spiral(int n, double delta) {
-        double width = 200;
-        for (int j = 0; j < width; j++)  {
+        double width = delta * n;
+        for (int i = 0; i < n; i++) {
             pause(200);
             move(width);
-            turn(360.0/n);
-            width =  width - delta;
+            turn(360.0/4);
+            width = width - delta;
         }
     }
 
