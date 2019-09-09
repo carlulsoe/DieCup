@@ -1,4 +1,4 @@
-package dintprog.debugger.tests;
+ 
 
 import java.io.*;
 import java.net.*;
