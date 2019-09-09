@@ -51,7 +51,12 @@ public class Turtle extends Actor {
      * @param n       Number of sides.
      * @param size    Length of each side.
      */
-    public void polygon(int n, double size) {}
+    public void polygon(int n, double size) {
+        for (int i = 0; i < n; i++) {
+            move(size);
+            turn(360.0/n);
+        }
+    }
 
     /**
      * Draws a circle.
