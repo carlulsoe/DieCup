@@ -27,10 +27,7 @@ public class Turtle extends Actor {
      * @param size   Length of each side.
      */
     public void triangle(double size) {
-        for (int i=0; i<3; i++) {
-            move(size);
-            turn(120);
-        }
+        polygon(3, size);
     }
 
     /**
@@ -39,10 +36,7 @@ public class Turtle extends Actor {
      * @param size   Length of each side.
      */
     public void square(double size) {
-        for (int i=0; i<4; i++) {
-            move(size);
-            turn(90);
-        }
+        polygon(4, size);
     }
 
     /**
@@ -52,8 +46,9 @@ public class Turtle extends Actor {
      * @param size    Length of each side.
      */
     public void polygon(int n, double size) {
-        for (int i = 0; i < n; i++) {
+        for (int i=0; i<n; i++) {
             move(size);
+            //pause(100);
             turn(360.0/n);
         }
     }
@@ -63,7 +58,9 @@ public class Turtle extends Actor {
      *
      * @param radius    Length of radius.
      */
-    public void circle(double radius) {}
+    public void circle(double radius) {
+        polygon(360, 2*radius*Math.PI/360.0);
+    }
 
     /**
      * Draws a star with five corners.
