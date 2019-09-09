@@ -6,3 +6,6 @@ Turtle/package.bluej
 Turtle/Canvas.class
 Turtle/Canvas.ctxt
 Turtle/Canvas.java
+*.ctxt
+*.class
+*.dat
