@@ -2,9 +2,11 @@
 import java.util.Random;
 
 /**
+ * This class models a Die
+ * 
  * @author Carl Ulsøe Christensen og Freja Østerbøg
+ * @version 2.0
  */
-
 public class Die {
     private Random random;   //gen. of random numbers
     private int eyes;        //number of eyes shown
@@ -14,7 +16,7 @@ public class Die {
         random = new Random();
         eyes = 0;
         // check if number of sides is greater than 1 otherwise it print an error message
-        if (noOfSides >= 2){
+        if (noOfSides >= 2) {
             sides = noOfSides;
         }
         else {

@@ -1,8 +1,8 @@
 /**
  * This class models a DieCup (raflebaeger)
  * 
- * @author Carl UlsÃ¸e Christensen og Freja Østerbøg
- * @version 2017-05-01
+ * @author Carl Ulsøe Christensen og Freja Østerbøg
+ * @version 2.0
  **/
 public class DieCup {
     private Die d1;   //first die

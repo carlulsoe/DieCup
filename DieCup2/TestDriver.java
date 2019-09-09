@@ -1,12 +1,11 @@
-
 /**
  * Tester dieCup
  * 
  * @author Carl Ulsøe Christensen og Freja Østerbøg
- * @version 1.0
+ * @version 2.0
  */
-public class TestDriver   {    
-    public static void test(int sides1, int sides2){
+public class TestDriver {    
+    public static void test(int sides1, int sides2) {
         DieCup cup = new DieCup(sides1, sides2);
         cup.roll();
         System.out.println(cup.getEyes());
@@ -33,7 +32,7 @@ public class TestDriver   {
         System.out.println("Average no of eyes: " + average);
     }
     
-    public static void compareDieCups(int s1, int s2, int s3, int s4, int noOfRolls){
+    public static void compareDieCups(int s1, int s2, int s3, int s4, int noOfRolls) {
         // vi laver alle DieCups
         DieCup d1 = new DieCup(s1, s2);
         DieCup d2 = new DieCup(s3, s4);
@@ -50,10 +49,10 @@ public class TestDriver   {
             int eyes1 = d1.getEyes();
             int eyes2 = d2.getEyes();
             // scorer rollet
-            if (eyes1 > eyes2){
+            if (eyes1 > eyes2) {
                 wins1++;
             }
-            else if (eyes2 > eyes1){
+            else if (eyes2 > eyes1) {
                 wins2++;
             }
             else {

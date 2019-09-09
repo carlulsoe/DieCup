@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=DieCup
-comment0.text=\r\n\ This\ class\ models\ a\ DieCup\ (raflebaeger)\r\n\ \r\n\ @author\ Carl\ Uls\u00C3\u00B8e\ Christensen\ og\ Freja\ \u00D8sterb\u00F8g\r\n\ @version\ 2017-05-01\r\n
+comment0.text=\r\n\ This\ class\ models\ a\ DieCup\ (raflebaeger)\r\n\ \r\n\ @author\ Carl\ Uls\u00F8e\ Christensen\ og\ Freja\ \u00D8sterb\u00F8g\r\n\ @version\ 2.0\r\n
 comment1.params=sides1\ sides2
 comment1.target=DieCup(int,\ int)
 comment2.params=
