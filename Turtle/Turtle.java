@@ -118,7 +118,12 @@ public class Turtle extends Actor {
      * @param size    Size of squares.
      * @param gap     Horizontal and vertical gap between adjacent squares.
      */
-    public void squares(int n, double size, double gap) {}
+    public void squares(int n, double size, double gap) {
+        for (int i=0; i<n; i++) {
+            square(size);
+            jump(gap/2, gap/2);
+        }
+    }
 
     /**
      * Draws a number of squares inside each other.
