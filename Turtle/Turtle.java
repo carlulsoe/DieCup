@@ -1,8 +1,8 @@
 /**
  * Turtle for drawing pictures on a World object.
  *
- * @author Kurt Jensen.
- * @version 2017-01-05.
+ * @author Carl Ulsøe Christensen.
+ * @version 2019-09-09.
  */
 public class Turtle extends Actor {
     /**
@@ -58,7 +58,7 @@ public class Turtle extends Actor {
      * @param radius    Length of radius.
      */
     public void circle(double radius) {
-        polygon(360, 2*radius*Math.PI/360.0);
+        polygon(100, 2*radius*Math.PI/100);
     }
 
     /**
@@ -81,12 +81,11 @@ public class Turtle extends Actor {
      *                 (equal to shortest side).
      */
     public void spiral(int n, double delta) {
-        double width = delta * n;
+        double width = delta;
         for (int i = 0; i < n; i++) {
-            pause(200);
             move(width);
             turn(360.0/4);
-            width = width - delta;
+            width = width + delta;
         }
     }
 
@@ -129,7 +128,7 @@ public class Turtle extends Actor {
     public void squares(int n, double size, double gap) {
         for (int i=0; i<n; i++) {
             square(size);
-            jump(gap/2, gap/2);
+            jump(gap, gap);
         }
     }
 
@@ -140,7 +139,14 @@ public class Turtle extends Actor {
      * @param gap    Gap between adjacent squares.
      *               (equal to size of smallest square).
      */
-    public void squares2(int n, double gap) {}
+    public void squares2(int n, double gap) {
+        double size = gap;
+        for (int i=0; i<n; i++) {
+            square(size);
+            size += gap * 2;
+            jump(-gap, -gap);
+        }
+    }
 
     /**
      * Draws a number of squares on a "horizontal" line.
