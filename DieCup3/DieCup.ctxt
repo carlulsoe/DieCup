@@ -1,0 +1,14 @@
+#BlueJ class context
+comment0.target=DieCup
+comment0.text=\r\n\ This\ class\ models\ a\ DieCup\ (raflebaeger)\r\n\ \r\n\ @author\ Carl\ Uls\u00F8e\ Christensen\ og\ Freja\ \u00D8sterb\u00F8g\r\n\ @version\ 2019-09-08\r\n
+comment1.params=numberOfDies
+comment1.target=DieCup(int)
+comment2.params=
+comment2.target=void\ roll()
+comment3.params=
+comment3.target=int\ getEyes()
+comment4.params=
+comment4.target=int\ getMaxEyes()
+comment5.params=
+comment5.target=void\ resetMaxEyes()
+numComments=6

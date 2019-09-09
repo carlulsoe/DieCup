@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.target=TestServer
+comment0.text=\r\n\ Denne\ klasse\ bruges\ til\ at\ interagere\ med\ testserveren\ til\ rafleb\u00EF\u00BF\u00BDgeropgaverne.\r\n\r\n\ Hvis\ det\ er\ f\u00C3\u00B8rste\ gang\ du\ tilg\u00C3\u00A5r\ testserveren,\ bliver\ du\ bedt\ om\ at\ indtaste\ en\ testkode,\r\n\ der\ kan\ findes\ p\u00C3\u00A5\ Grade\ Center\ inde\ p\u00C3\u00A5\ Blackboard.\r\n\r\n\ Bem\u00EF\u00BF\u00BDrk\:\ Du\ kan\ kun\ tilg\u00C3\u00A5\ testserveren\ fra\ universitetes\ netv\u00C3\u00A6rk.\r\n\r\n\ Guide\ til\ at\ tilg\u00C3\u00A5\ universitetets\ netv\u00C3\u00A6rk\ hjemmefra\:\r\n\ https\://medarbejdere.au.dk/administration/it/vpn-remoteaudk/\r\n\r\n\ Hvis\ du\ oplever\ fejl\ ved\ brug\ af\ denne\ klasse,\ bedes\ du\ skrive\ til\ nis@cs.au.dk\r\n\ og\ beskrive\ dit\ problem\ s\u00C3\u00A5\ pr\u00C3\u00A6cist\ som\ muligt.\r\n\r\n\ @author\ \ Nikolaj\ I.\ Schwartzbach\r\n\ @version\ 02-04-2019\r\n
+comment1.params=
+comment1.target=TestServer()
+comment2.params=exercise
+comment2.target=void\ test(java.lang.String)
+comment2.text=\r\n\ Tests\ exercise\ in\ classpath\ (the\ folder\ from\ which\ the\ program\ is\ invoked).\r\n\ @param\ exercise\ \ \ Short\ name\ of\ exercise\ (DC1,\ DC2,\ DC3-1,\ DC3-4).\r\n
+comment3.params=location\ arguments
+comment3.target=java.lang.String\ sendPost(java.lang.String,\ java.util.Map)
+comment3.text=\r\n\ This\ method\ sends\ an\ HTTP\ POST\ request\ to\ a\ specified\ location\ with\ some\ arguments.\r\n\ @param\ location\ The\ URL\ to\ POST\ to.\r\n\ @param\ arguments\ The\ HTTP\ header\ arguments.\r\n\ @return\ The\ response\ from\ the\ URL\ (if\ any).\r\n\ @throws\ IOException\ For\ various\ reasons.\r\n
+numComments=4
