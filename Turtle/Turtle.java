@@ -47,7 +47,6 @@ public class Turtle extends Actor {
     public void polygon(int n, double size) {
         for (int i=0; i<n; i++) {
             move(size);
-            //pause(100);
             turn(360.0/n);
         }
     }
