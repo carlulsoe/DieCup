@@ -10,19 +10,19 @@ public class DieCup {
     private int maxEyes;   //Max count of eyes
     ArrayList<Die> dies;
 
-    public DieCup(int numberOfDies) {
-        if (numberOfDies >= 1)  {
+    public DieCup(ArrayList<Integer> newDies) {
+        if (newDies.size() >= 1)  {
             dies = new ArrayList<>();
-            for (int i = 0; i < numberOfDies; i++)  {
-                dies.add(new Die());
+            for (int i = 0; i < newDies.size(); i++)  {
+                dies.add(new Die(newDies.get(i)));
             }
-        }/*
-        else if (numberOfDies == 0) {
+        }
+        else if (newDies.size() == 0) {
             System.out.println("This is pointless");
         }
         else  {
             System.out.println("Really? Why are you even trying?");
-        }*/
+        }
         maxEyes = 0;
     }
 
