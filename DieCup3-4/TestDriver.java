@@ -7,68 +7,21 @@ import java.util.ArrayList;
  * @version 1.0
  */
 public class TestDriver   {    
-    public static void test(){
+    public static void test4638(int numberOfRolls){
         ArrayList<Integer> newDies = new ArrayList<>(); 
         newDies.add(4); 
         newDies.add(6); 
         newDies.add(3); 
         newDies.add(8); 
         DieCup cup = new DieCup(newDies);
-        cup.roll();
-        System.out.println(cup.getEyes());
-    }
-    
-    public static void testMulitple(ArrayList<Integer> newDies, int noOfRolls) {
-        DieCup cup = new DieCup(newDies);
-        if (noOfRolls == 0) {
-            return;
-        }
-        // We make a new variable which contains the sum of all the rolls
-        double rollSum = 0.0;
-        // Now we make a for loop to run roll exactly noOfRolls times. 
-        for (int i = 1; i <= noOfRolls; i++) {
-            // We roll and saves the number of eyes rolled in a temporary variable
+        
+        double sum = 0.0;
+        for (int i = 0; i < numberOfRolls; i++) {
             cup.roll();
-            int tempEyes = cup.getEyes();
-            // We then add the number of eyes to our sum and print out what we rolled.
-            rollSum += tempEyes;
-            System.out.println("Throw no " + i + ": " + tempEyes);
+            sum += cup.getEyes();
+            System.out.println("Throw no " + (i+1) + ": "+ cup.getEyes());
         }
-        // then we output the average.
-        double average = rollSum/noOfRolls;
-        System.out.println("Average no of eyes: " + average);
-    }
-    
-    public static void compareDieCups(int noOfRolls, ArrayList<Integer> newDies1, ArrayList<Integer> newDies2){
-        // vi laver alle DieCups
-        DieCup d1 = new DieCup(newDies1);
-        DieCup d2 = new DieCup(newDies2);
-        // tracker scoren
-        int wins1 = 0;
-        int wins2 = 0;
-        int sameScore = 0;
-        // roller noOfRolls gange
-        for (int i = 1; i <= noOfRolls; i++) {
-            // roller
-            d1.roll();
-            d2.roll();
-            // tjekker eyes
-            int eyes1 = d1.getEyes();
-            int eyes2 = d2.getEyes();
-            // scorer rollet
-            if (eyes1 > eyes2){
-                wins1++;
-            }
-            else if (eyes2 > eyes1){
-                wins2++;
-            }
-            else {
-                sameScore++;
-            }
-        }
-        // printer slut scoren.
-        System.out.println("DieCup 1 is highest: " + wins1 + " times");
-        System.out.println("DieCup 2 is highest: " + wins2 + " times");
-        System.out.println("Same score in both: " + sameScore + " times");
+        System.out.println(sum/numberOfRolls);
+        
     }
 }
