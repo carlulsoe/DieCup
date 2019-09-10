@@ -3,11 +3,11 @@ import java.util.ArrayList;
 /**
  * Tester dieCup
  * 
- * @author Carl Ulsøe Christensen og Freja Østerbøg
+ * @author Carl Ulsï¿½e Christensen og Freja ï¿½sterbï¿½g
  * @version 1.0
  */
 public class TestDriver   {    
-    public static void test(){
+    public static void test4638(int numberOfRolls){
         ArrayList<Integer> newDies = new ArrayList<>(); 
         newDies.add(4); 
         newDies.add(6); 
@@ -65,11 +65,14 @@ public class TestDriver   {
             else {
                 sameScore++;
             }
+        double sum = 0.0;
+        for (int i = 0; i < numberOfRolls; i++) {
+            cup.roll();
+            sum += cup.getEyes();
+            System.out.println("Throw no " + (i+1) + ": "+ cup.getEyes());
         }
-        // printer slut scoren.
-        System.out.println("DieCup 1 is highest: " + wins1 + " times");
-        System.out.println("DieCup 2 is highest: " + wins2 + " times");
-        System.out.println("Same score in both: " + sameScore + " times");
+        System.out.println(sum/numberOfRolls);
+        
     }
 
     public static void spiltDigits(int digits) {
