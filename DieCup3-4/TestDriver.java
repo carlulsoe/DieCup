@@ -7,7 +7,12 @@ import java.util.ArrayList;
  * @version 1.0
  */
 public class TestDriver   {    
-    public static void test(ArrayList<Integer> newDies){
+    public static void test(){
+        ArrayList<Integer> newDies = new ArrayList<>(); 
+        newDies.add(4); 
+        newDies.add(6); 
+        newDies.add(3); 
+        newDies.add(8); 
         DieCup cup = new DieCup(newDies);
         cup.roll();
         System.out.println(cup.getEyes());
