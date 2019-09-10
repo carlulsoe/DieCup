@@ -6,13 +6,10 @@ import java.util.ArrayList;
  * @author Carl Uls�e Christensen og Freja �sterb�g
  * @version 1.0
  */
-<<<<<<< HEAD
 public class TestDriver   {    
     public static void test4638(int numberOfRolls){
-=======
 public class TestDriver {    
     public static void test(){
->>>>>>> master
         ArrayList<Integer> newDies = new ArrayList<>(); 
         newDies.add(4); 
         newDies.add(6); 
@@ -78,15 +75,12 @@ public class TestDriver {
             sum += cup.getEyes();
             System.out.println("Throw no " + (i+1) + ": "+ cup.getEyes());
         }
-<<<<<<< HEAD
         System.out.println(sum/numberOfRolls);
         
-=======
         // printer slut scoren.
         System.out.println("DieCup 1 with " + dc1List + " is highest: " + wins1 + " times");
         System.out.println("DieCup 2 with " + dc2List + " is highest: " + wins2 + " times");
         System.out.println("Same score in both: " + sameScore + " times");
->>>>>>> master
     }
 
     public static void spiltDigits(int digits) {
