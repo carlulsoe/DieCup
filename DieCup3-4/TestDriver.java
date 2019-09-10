@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 
 /**
  * Tester dieCup
@@ -6,14 +7,14 @@
  * @version 1.0
  */
 public class TestDriver   {    
-    public static void test(int numberOfDies){
-        DieCup cup = new DieCup(numberOfDies);
+    public static void test(ArrayList<Integer> newDies){
+        DieCup cup = new DieCup(newDies);
         cup.roll();
         System.out.println(cup.getEyes());
     }
     
-    public static void testMulitple(int noOfRolls, int numberOfDies) {
-        DieCup cup = new DieCup(numberOfDies);
+    public static void testMulitple(ArrayList<Integer> newDies, int noOfRolls) {
+        DieCup cup = new DieCup(newDies);
         if (noOfRolls == 0) {
             return;
         }
@@ -33,10 +34,10 @@ public class TestDriver   {
         System.out.println("Average no of eyes: " + average);
     }
     
-    public static void compareDieCups(int noOfRolls, int nod1, int nod2){
+    public static void compareDieCups(int noOfRolls, ArrayList<Integer> newDies1, ArrayList<Integer> newDies2){
         // vi laver alle DieCups
-        DieCup d1 = new DieCup(nod1);
-        DieCup d2 = new DieCup(nod2);
+        DieCup d1 = new DieCup(newDies1);
+        DieCup d2 = new DieCup(newDies2);
         // tracker scoren
         int wins1 = 0;
         int wins2 = 0;
