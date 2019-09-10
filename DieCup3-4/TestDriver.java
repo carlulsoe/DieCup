@@ -17,7 +17,7 @@ public class TestDriver   {
         cup.roll();
         System.out.println(cup.getEyes());
     }
-    
+
     public static void testMulitple(ArrayList<Integer> newDies, int noOfRolls) {
         DieCup cup = new DieCup(newDies);
         if (noOfRolls == 0) {
@@ -38,7 +38,7 @@ public class TestDriver   {
         double average = rollSum/noOfRolls;
         System.out.println("Average no of eyes: " + average);
     }
-    
+
     public static void compareDieCups(int noOfRolls, ArrayList<Integer> newDies1, ArrayList<Integer> newDies2){
         // vi laver alle DieCups
         DieCup d1 = new DieCup(newDies1);
@@ -70,5 +70,25 @@ public class TestDriver   {
         System.out.println("DieCup 1 is highest: " + wins1 + " times");
         System.out.println("DieCup 2 is highest: " + wins2 + " times");
         System.out.println("Same score in both: " + sameScore + " times");
+    }
+
+    public static void spiltDigits(int digits) {
+        ArrayList list = new ArrayList<Integer>();
+        while (digits > 0) {
+            int dig = digits % 10;
+            System.out.println(dig);
+            digits = digits / 10;
+        }        
+    }
+
+    public static ArrayList createArrayList(int digits) {
+        System.out.println(digits);
+        ArrayList list = new ArrayList<Integer>();
+        while (digits > 0) {
+            int dig = digits % 10;
+            list.add(dig);
+            digits = digits / 10;
+        }
+        return list;
     }
 }
