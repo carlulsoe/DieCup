@@ -16,13 +16,13 @@ public class DieCup {
             for (int i = 0; i < numberOfDies; i++)  {
                 dies.add(new Die());
             }
-        }/*
+        }
         else if (numberOfDies == 0) {
             System.out.println("This is pointless");
         }
         else  {
             System.out.println("Really? Why are you even trying?");
-        }*/
+        }
         maxEyes = 0;
     }
 
