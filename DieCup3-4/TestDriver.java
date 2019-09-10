@@ -6,8 +6,13 @@ import java.util.ArrayList;
  * @author Carl Uls�e Christensen og Freja �sterb�g
  * @version 1.0
  */
+<<<<<<< HEAD
 public class TestDriver   {    
     public static void test4638(int numberOfRolls){
+=======
+public class TestDriver {    
+    public static void test(){
+>>>>>>> master
         ArrayList<Integer> newDies = new ArrayList<>(); 
         newDies.add(4); 
         newDies.add(6); 
@@ -39,10 +44,12 @@ public class TestDriver   {
         System.out.println("Average no of eyes: " + average);
     }
 
-    public static void compareDieCups(int noOfRolls, ArrayList<Integer> newDies1, ArrayList<Integer> newDies2){
+    public static void compareDieCups(int dc1, int dc2, int noOfRolls){
         // vi laver alle DieCups
-        DieCup d1 = new DieCup(newDies1);
-        DieCup d2 = new DieCup(newDies2);
+        ArrayList dc1List = createArrayList(dc1);
+        ArrayList dc2List = createArrayList(dc2);
+        DieCup d1 = new DieCup(dc1List);
+        DieCup d2 = new DieCup(dc2List);
         // tracker scoren
         int wins1 = 0;
         int wins2 = 0;
@@ -71,8 +78,15 @@ public class TestDriver   {
             sum += cup.getEyes();
             System.out.println("Throw no " + (i+1) + ": "+ cup.getEyes());
         }
+<<<<<<< HEAD
         System.out.println(sum/numberOfRolls);
         
+=======
+        // printer slut scoren.
+        System.out.println("DieCup 1 with " + dc1List + " is highest: " + wins1 + " times");
+        System.out.println("DieCup 2 with " + dc2List + " is highest: " + wins2 + " times");
+        System.out.println("Same score in both: " + sameScore + " times");
+>>>>>>> master
     }
 
     public static void spiltDigits(int digits) {
