@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Turtle
-comment0.text=\r\n\ Turtle\ for\ drawing\ pictures\ on\ a\ World\ object.\r\n\r\n\ @author\ Kurt\ Jensen.\r\n\ @version\ 2017-01-05.\r\n
+comment0.text=\r\n\ Turtle\ for\ drawing\ pictures\ on\ a\ World\ object.\r\n\r\n\ @author\ Carl\ Uls\u00F8e\ Christensen.\r\n\ @version\ 2019-09-09.\r\n
 comment1.params=x\ y
 comment1.target=Turtle(int,\ int)
 comment1.text=\r\n\ Instantiates\ a\ new\ Turtle\ object\ at\ the\ specified\ coordinates.\r\n
