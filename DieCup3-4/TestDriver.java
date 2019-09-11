@@ -3,11 +3,11 @@ import java.util.ArrayList;
 /**
  * Tester dieCup
  * 
- * @author Carl Ulsøe Christensen og Freja Østerbøg
+ * @author Carl UlsÃ¸e Christensen og Freja Ã˜sterbÃ¸g
  * @version 1.0
  */
 public class TestDriver {    
-    public static void test(){
+    public static void test4638(){
         ArrayList<Integer> newDies = new ArrayList<>(); 
         newDies.add(4); 
         newDies.add(6); 
