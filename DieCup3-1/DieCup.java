@@ -14,7 +14,7 @@ public class DieCup {
         if (numberOfDies >= 1)  {
             dies = new ArrayList<>();
             for (int i = 0; i < numberOfDies; i++)  {
-                dies.add(new Die());
+                dies.add(new Die(6));
             }
         }
         else if (numberOfDies == 0) {
