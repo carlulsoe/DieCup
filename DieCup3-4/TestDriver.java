@@ -2,15 +2,10 @@ import java.util.ArrayList;
 
 /**
  * Tester dieCup
- * @author Carl Uls�e Christensen og Freja �sterb�g
- * @version 2.0
- */
-public class TestDriver   {    
-    public static void test4638(int numberOfRolls){
-
  * @author Carl Ulsøe Christensen og Freja Østerbøg
  * @version 2.0
  */
+
 public class TestDriver {    
     public static void test4638(int noOfRolls){
         ArrayList<Integer> newDies = new ArrayList<>(); 
