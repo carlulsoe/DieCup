@@ -31,7 +31,6 @@ public class TestDriver {
         double average = rollSum/noOfRolls;
         System.out.println("Average no of eyes: " + average);
     }
-    
     public static void compareDieCups(int s1, int s2, int s3, int s4, int noOfRolls) {
         // vi laver alle DieCups
         DieCup d1 = new DieCup(s1, s2);
