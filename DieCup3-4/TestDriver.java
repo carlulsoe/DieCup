@@ -21,6 +21,41 @@ public class TestDriver {
         }
         System.out.println(eyes/noOfRolls);
     }
+    
+    public static void compareDieCups(int dc1, int dc2, int noOfRolls){
+        // vi laver alle DieCups
+        ArrayList dc1List = createArrayList(dc1);
+        ArrayList dc2List = createArrayList(dc2);
+        DieCup d1 = new DieCup(dc1List);
+        DieCup d2 = new DieCup(dc2List);
+        // tracker scoren
+        int wins1 = 0;
+        int wins2 = 0;
+        int sameScore = 0;
+        // roller noOfRolls gange
+        for (int i = 1; i <= noOfRolls; i++) {
+            // roller
+            d1.roll();
+            d2.roll();
+            // tjekker eyes
+            int eyes1 = d1.getEyes();
+            int eyes2 = d2.getEyes();
+            // scorer rollet
+            if (eyes1 > eyes2){
+                wins1++;
+            }
+            else if (eyes2 > eyes1){
+                wins2++;
+            }
+            else {
+                sameScore++;
+            }
+        }
+        // printer slut scoren.
+        System.out.println("DieCup 1 with " + dc1List + " is highest: " + wins1 + " times");
+        System.out.println("DieCup 2 with " + dc2List + " is highest: " + wins2 + " times");
+        System.out.println("Same score in both: " + sameScore + " times");
+    }
 
     public static void spiltDigits(int digits) {
         ArrayList list = new ArrayList<Integer>();
