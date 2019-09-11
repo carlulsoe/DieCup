@@ -17,7 +17,7 @@ public class TestDriver {
         double eyes = 0;
         for (int i = 0; i < noOfRolls; i++) {
             cup.roll();
-            eyes += getEyes();
+            eyes += cup.getEyes();
         }
         System.out.println(eyes/noOfRolls);
     }
