@@ -6,7 +6,18 @@ import java.util.ArrayList;
  * @version 2.0
  */
 
-public class TestDriver {    
+public class TestDriver {
+    public static void test(){
+        ArrayList<Integer> newDies = new ArrayList<>(); 
+        newDies.add(4); 
+        newDies.add(6); 
+        newDies.add(3); 
+        newDies.add(8); 
+        DieCup cup = new DieCup(newDies);
+        cup.roll();
+        System.out.println(cup.getEyes());
+    }
+    
     public static void test4638(int noOfRolls){
         ArrayList<Integer> newDies = new ArrayList<>(); 
         newDies.add(4); 
