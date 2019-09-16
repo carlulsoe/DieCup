@@ -1,5 +1,4 @@
 import java.util.*;
-
 /**
  * This class implements a number of filters, i.e. methods that can be used to
  * manipulate Image objects, e.g. make the image darker or mirrored.
@@ -13,23 +12,25 @@ public class Filters
 {
 
     private Image image;     // Image on which the filter methods operate
-    
+
     /**
      * The constructor takes as input an instance of Image.
      * 
      * @param image   Image to apply filters to.
      */
     public Filters(Image image) {
+        this.image = image;
     }
-    
+
     /**
      * The constructor  creates an Image object from the file picture.jpg (in the project folder).
      * 
      * @param image   Image to apply filters to.
      */
     public Filters() {
+        image = new Image("picture.png");
     }
-    
+
     /**
      * This method brightens an image by adding some amount to the
      * value of all pixels in the image.
@@ -40,7 +41,12 @@ public class Filters
      * @return   Brightened image.
      */
     public Image brighten(int amount) {
-        return null;
+        for (Pixel p : image.getPixels()) {
+            p.setValue(p.getValue() + amount);
+        }
+        image.setTitle("brighten" + amount + "-" + image.getTitle());
+        image.updateCanvas();
+        return image;
     }
 
     /**
@@ -53,7 +59,12 @@ public class Filters
      * @return   Darkened image.
      */
     public Image darken(int amount) {
-        return null;
+        for (Pixel p : image.getPixels()) {
+            p.setValue(p.getValue() - amount);
+        }
+        image.setTitle("darken" + amount + "-" + image.getTitle());
+        image.updateCanvas();
+        return image;
     }  
 
     /**
@@ -64,7 +75,12 @@ public class Filters
      * @return   Inverted image.
      */
     public Image invert() {
-        return null;
+        for (Pixel p : image.getPixels()) {
+            p.setValue(255 - p.getValue());
+        }
+        image.setTitle("invert-" + image.getTitle());
+        image.updateCanvas();
+        return image;
     }
 
     /**
@@ -76,19 +92,39 @@ public class Filters
      * @return   Mirrored image.
      */
     public Image mirror() {
-        return null;
+        int width = image.getWidth();
+        int height = image.getHeight();
+        Image mirror = new Image(width, height, "sort");
+        for (int i = 0; i < width; i++) {
+            for (int j = 0; j < height; j++) {            
+                mirror.getPixel(i, j).setValue(image.getPixel(width - i - 1, j).getValue()); 
+            }                
+        }
+        mirror.setTitle("mirror-" + image.getTitle());        
+        mirror.updateCanvas();
+        return mirror;
     }
 
     /**
      * This method flips an image across the horizontal axis.
      * The value of pixel (i,j) in the new image is set to the value of pixel
-     * ?????????? in the old image, where height is the height of the image.
+     * (i, height-j-1) in the old image, where height is the height of the image.
      * The title of the new image is prefixed 'flip-'.
      *
      * @return   Flipped image.
      */
     public Image flip() {
-        return null;
+        int width = image.getWidth();
+        int height = image.getHeight();
+        Image flip = new Image(width, height, "sort");
+        for (int i = 0; i < width; i++) {
+            for (int j = 0; j < height; j++) {            
+                flip.getPixel(i, j).setValue(image.getPixel(i, height - j - 1).getValue()); 
+            }                
+        }
+        flip.setTitle("flip-" + image.getTitle());        
+        flip.updateCanvas();
+        return flip;
     }
 
     /**
@@ -100,7 +136,17 @@ public class Filters
      * @return   Rotated image.
      */
     public Image rotate() {
-        return null;
+        int width = image.getWidth();
+        int height = image.getHeight();
+        Image rotate = new Image(height, width, "sort");
+        for (int i = 0; i < height; i++) {
+            for (int j = 0; j < width; j++) {            
+                rotate.getPixel(i, j).setValue(image.getPixel(j, height - i - 1).getValue()); 
+            }                
+        }
+        rotate.setTitle("rotate-" + image.getTitle());        
+        rotate.updateCanvas();
+        return rotate;
     }
 
     /**
@@ -113,7 +159,12 @@ public class Filters
      * @return    Average pixel value.
      */
     private int average(int i, int j) {
-        return 0;
+        int average = 0;
+        for (Pixel p : image.getNeighbours(i, j)) {
+            average += p.getValue();
+        }
+        average /= image.getNeighbours(i, j).size();
+        return average;
     }
 
     /**
@@ -124,9 +175,19 @@ public class Filters
      * @return   Blurred image.
      */
     public Image blur() {
-        return null;
+        int width = image.getWidth();
+        int height = image.getHeight();
+        Image blur = new Image(width, height, "sort");
+        for (int i = 0; i < width; i++) {
+            for (int j = 0; j < height; j++) {
+                blur.getPixel(i, j).setValue(average(i, j));
+            }
+        }
+        blur.setTitle("blur-" + image.getTitle());        
+        blur.updateCanvas();
+        return blur;
     }
-   
+
     /**
      * This method adds noise to an image.
      * The value of pixel (i,j) is set to a random value in the interval
@@ -137,7 +198,13 @@ public class Filters
      * @return  Noisy image. 
      */  
     public Image noise(int amount) {
-        return null;
+        Random r = new Random();
+        for (Pixel p : image.getPixels()) {
+            p.setValue(p.getValue() + (r.nextInt((amount+1)*2) - amount - 1));
+        }
+        image.setTitle("noise" + amount + "-" + image.getTitle());        
+        image.updateCanvas();
+        return image;
     }
 
     /**
@@ -155,7 +222,7 @@ public class Filters
     public Image resize(double factor) {
         return null;
     }
-    
+
     /**
      * This method rotates an image 90 degrees anti-clockwise.
      * The value of pixel (i,j) in the new image is set to the value of pixel
@@ -167,7 +234,7 @@ public class Filters
     public Image rotateAC() {
         return null;
     }
-    
+
     /**
      * This image increases the contrast of an image by some amount.
      * 
