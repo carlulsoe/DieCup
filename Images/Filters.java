@@ -1,4 +1,6 @@
+
 import java.util.*;
+import java.lang.Math;
 /**
  * This class implements a number of filters, i.e. methods that can be used to
  * manipulate Image objects, e.g. make the image darker or mirrored.
@@ -209,7 +211,7 @@ public class Filters
 
     /**
      * This method resizes an image by some factor.
-     * The size of the new image becomes with*factor x hiehgt*factor, where
+     * The size of the new image becomes Width*factor x Height*factor, where
      * width and heigt are the width and height of the old image.
      * The value of pixel (i,j) in the new image is set to the value of pixel
      * (i/factor,j/factor) in the old image, where factor is the parameter.
@@ -220,19 +222,40 @@ public class Filters
      * @return   Resized image.
      */   
     public Image resize(double factor) {
-        return null;
+        int newWidth = (int) (image.getWidth() * factor);
+        int newHeight = (int) (image.getHeight() * factor);
+        Image resize = new Image(newWidth, newHeight, "sort");
+        for (int i=0; i <newWidth; i++) {
+            for (int j=0; j <newHeight; j++) {
+                resize.getPixel(i, j).setValue(image.getPixel((int)(i/factor),
+                        (int)(j/factor)).getValue());
+            }
+        }
+        resize.setTitle("resize" + factor + "-" + image.getTitle());        
+        resize.updateCanvas();
+        return resize;
     }
 
     /**
      * This method rotates an image 90 degrees anti-clockwise.
      * The value of pixel (i,j) in the new image is set to the value of pixel
-     * ???????? in the old image, where width is the width of the new image.
+     * (width-j-1, i) in the old image, where width is the width of the new image.
      * The title of the new image is prefixed 'rotateAC-'.
      *
      * @return   Rotated image.
      */
     public Image rotateAC() {
-        return null;
+        int width = image.getWidth();
+        int height = image.getHeight();
+        Image rotate = new Image(height, width, "sort");
+        for (int i = 0; i < height; i++) {
+            for (int j = 0; j < width; j++) {            
+                rotate.getPixel(i, j).setValue(image.getPixel(width-j-1, i).getValue()); 
+            }                
+        }
+        rotate.setTitle("rotateAC-" + image.getTitle());        
+        rotate.updateCanvas();
+        return rotate;
     }
 
     /**
@@ -241,7 +264,18 @@ public class Filters
      * @param amount    The amount by which to increase contrast
      */
     public Image increaseContrast(double amount) {
-        return null;
+        double power = Math.exp(-amount);
+        for (Pixel p : image.getPixels()) {
+            // calculates x as a double 
+            double x = (p.getValue() * 2)/255.0 -1;
+            // find the signum
+            double sig = Math.signum(x);
+            // calculates the new value
+            double y = ((sig * Math.pow(Math.abs(x), power) + 1)/2.0) * 255.0;
+            p.setValue((int)(y));
+        }
+        image.setTitle("contrast" + amount + "-" + image.getTitle());        
+        image.updateCanvas();
+        return image;
     }
-
 }
