@@ -1,7 +1,7 @@
 /**
  * Turtle for drawing pictures on a World object.
  *
- * @author Carl Uls�e Christensen.
+ * @author Carl Ulsøe Christensen og Freja Østerbøg
  * @version 2019-09-09.
  */
 public class Turtle extends Actor {
@@ -154,7 +154,13 @@ public class Turtle extends Actor {
      * @param size    Size of squares.
      * @param gap     Distance between adjacent squares.
      */
-    public void squaresHorizontal(int n, double size, double gap) {}
+    public void squaresHorizontal(int n, double size, double gap) {
+        if (n > 0)  {
+            square(size);
+            jump(size + gap, 0);
+            squaresHorizontal(n-1, size, gap);
+        }
+    }
 
     /**
      * Draws a number of squares inside each other so that
@@ -163,7 +169,12 @@ public class Turtle extends Actor {
      * @param n       Number of squares.
      * @param size    Size of largest square.
      */
-    public void squaresCornered(int n, double size) {}
+    public void squaresCornered(int n, double size) {
+        if (n > 0)  {
+            square(size);
+            squaresCornered(n-1, size - size/n);
+        }
+    }
 
     /**
      * Draws a number of triangles inside each other.
@@ -171,7 +182,14 @@ public class Turtle extends Actor {
      * @param n       Number of triangles.
      * @param size    Size of largest triangle.
      */
-    public void triangles(int n, double size) {}
+    public void triangles(int n, double size) {
+        if (n > 0)  {
+            triangle(size);
+            jump(size*3/4, Math.sqrt(Math.pow(size/2,2) - Math.pow(size/4,2)));
+            turn(180);
+            triangles(n-1, size/2);
+        }
+    }
 
     /**
      * Draws a number of squares inside each other.
@@ -180,7 +198,13 @@ public class Turtle extends Actor {
      * @param gap    Gap between adjacent squares
      *               (equal to size of smallest square).
      */
-    public void squaresCentered(int n, double gap) {}
+    public void squaresCentered(int n, double gap) {
+        if (n > 0)  {
+            square(n*gap*2);
+            jump(gap, gap);
+            squaresCentered(n-1, gap);
+        }
+    }
 
     /**
      * Draws a Koch curve.
@@ -188,7 +212,26 @@ public class Turtle extends Actor {
      * @param n       Degree of Koch curve.
      * @param size    Length of Koch curve.
      */
-    public void kochCurve(int n, double size) {}
+    public void kochCurve(int n, double size) {
+        if (n > 1)  {
+            kochCurve(n-1, size/3);
+            turn(-60);
+            kochCurve(n-1, size/3);
+            turn(120);
+            kochCurve(n-1, size/3);
+            turn(-60);
+            kochCurve(n-1, size/3);
+        }
+        else if (n == 1)    {
+            move(size/3);
+            turn(-60);
+            move(size/3);
+            turn(120);
+            move(size/3);
+            turn(-60);
+            move(size/3);
+        }
+    }
 
     /**
      * Draws a Koch flake.
@@ -196,7 +239,14 @@ public class Turtle extends Actor {
      * @param n       Degree of Koch curves.
      * @param size    Length of each Koch curve.
      */
-    public void kochFlake(int n, double size){}
+    public void kochFlake(int n, double size){
+        kochCurve(n,size);
+        turn(120);
+        kochCurve(n,size);
+        turn(120);
+        kochCurve(n,size);
+        turn(120);
+    }
 
     /**
      * Draws a Sierpinski curve.
@@ -204,7 +254,22 @@ public class Turtle extends Actor {
      * @param n       Degree of Sierpinski curve.
      * @param size    Length of Sierpinski curve.
      */ 
-    public void sierpinskiCurve(int n, double size) {}
+    public void sierpinskiCurve(int n, double size) {
+        if (n > 1)  {
+            triangle(size);
+            sierpinskiCurve(n-1, size/2);
+            jump(size/2,0);
+            sierpinskiCurve(n-1, size/2);
+            turn(60);
+            jump(size/2,0);
+            turn(60);
+            sierpinskiCurve(n-1, size/2);
+            turn(240);
+        }
+        else if (n == 1)    {
+            triangle(size);
+        }
+    }
 
     /**
      * Draws a pattern of squares where most are placed in the diagonal.
