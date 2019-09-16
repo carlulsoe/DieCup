@@ -3,7 +3,7 @@ import java.util.ArrayList;
 /**
  * This class models a DieCup (raflebaeger)
  * 
- * @author Carl Ulsøe Christensen og Freja Østerbøg
+ * @author Carl UlsÃ¸e Christensen og Freja Ã˜sterbÃ¸g
  * @version 2019-09-08
  **/
 public class DieCup {
@@ -11,7 +11,9 @@ public class DieCup {
     ArrayList<Die> dies;
 
     public DieCup(ArrayList<Integer> newDies) {
+        // Checks number of die
         if (newDies.size() >= 1)  {
+            // Adds all of the dies to the field varible.
             dies = new ArrayList<>();
             for (int i = 0; i < newDies.size(); i++)  {
                 dies.add(new Die(newDies.get(i)));
@@ -38,6 +40,7 @@ public class DieCup {
     }
 
     public int getEyes() {
+        // gets eyes from all dies and sums them.
         int sum = 0;
         for (int i = 0; i < dies.size(); i++)   {
             sum += dies.get(i).getEyes();
