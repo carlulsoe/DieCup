@@ -185,8 +185,9 @@ public class Turtle extends Actor {
     public void triangles(int n, double size) {
         if (n > 0)  {
             triangle(size);
-            jump(size*3/4, Math.sqrt(Math.pow(size/2,2) - Math.pow(size/4,2)));
-            turn(180);
+            turn(60);
+            move(size/2);
+            turn(-120);
             triangles(n-1, size/2);
         }
     }
