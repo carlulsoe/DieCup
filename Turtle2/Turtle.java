@@ -253,17 +253,15 @@ public class Turtle extends Actor {
     public void sierpinskiCurve(int n, double size) {
         if (n > 0)  {
             sierpinskiCurve(n-1, size/2);
-            jump(size/2, 0);
-            sierpinskiCurve(n-1, size/2);
             turn(60);
             jump(size/2, 0);
-            turn(120);
-            jump(size/2, 0);
-            turn(180);
+            turn(-60);
             sierpinskiCurve(n-1, size/2);
-            turn(-120);
+            turn(-60);
             jump(size/2, 0);
-            turn(120);
+            turn(60);
+            sierpinskiCurve(n-1, size/2);
+            jump(-size/2, 0);
         }
         else if (n == 0)    {
             triangle(size);
