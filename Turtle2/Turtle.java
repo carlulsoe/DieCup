@@ -200,7 +200,7 @@ public class Turtle extends Actor {
      */
     public void squaresCentered(int n, double gap) {
         if (n > 0)  {
-            square(n*gap*2);
+            square(n*gap*2 - gap);
             jump(gap, gap);
             squaresCentered(n-1, gap);
         }
@@ -255,18 +255,15 @@ public class Turtle extends Actor {
      * @param size    Length of Sierpinski curve.
      */ 
     public void sierpinskiCurve(int n, double size) {
-        if (n > 1)  {
-            triangle(size);
+        if (n > 0)  {
             sierpinskiCurve(n-1, size/2);
-            jump(size/2,0);
+            jump(size/2, 0);
             sierpinskiCurve(n-1, size/2);
-            turn(60);
-            jump(size/2,0);
-            turn(60);
+            jump(-size/4, Math.sqrt(Math.pow(size/2, 2) - Math.pow(size/4, 2)));
             sierpinskiCurve(n-1, size/2);
-            turn(240);
+            jump(-size/4, -Math.sqrt(Math.pow(size/2, 2) - Math.pow(size/4, 2)));
         }
-        else if (n == 1)    {
+        else if (n == 0)    {
             triangle(size);
         }
     }
@@ -277,7 +274,18 @@ public class Turtle extends Actor {
      * @param n       Depth of pattern (for n=1 a sigle square is drawn).
      * @param size    Size of largest square.
      */
-    public void squarePatternDiagonal(int n, double size) {}
+    public void squarePatternDiagonal(int n, double size) {
+        if (n > 1)  {
+            square(size);
+            squarePatternDiagonal(n-1, size/2);
+            jump(size/2, size/2);
+            squarePatternDiagonal(n-1, size/2);
+            jump(-size/2, -size/2);
+        }
+        else if (n == 1)   {
+            square(size);
+        }
+    }
 
     /**
      * Draws a pattern of squares, where each square immediately
@@ -287,7 +295,25 @@ public class Turtle extends Actor {
      * @param n       Depth of pattern (for n=1 a sigle square is drawn).
      * @param size    Size of largest square.
      */
-    public void squarePatternFour(int n, double size) {}
+    public void squarePatternFour(int n, double size) {
+        if (n > 1)   {
+            double l = 4/9.0*size;
+            square(size);
+            jump(1/9.0 * size, 1/9.0 * size);
+            squarePatternFour(n-1, size/3);
+            jump(l, 0);
+            squarePatternFour(n-1, size/3);
+            jump(0, l);
+            squarePatternFour(n-1, size/3);
+            jump(-l, 0);
+            squarePatternFour(n-1, size/3);
+            jump(0,-l);
+            jump(-1/9.0 * size, -1/9.0 * size);
+        }
+        else if (n == 1)  {
+            square(size);
+        }
+    }
 
     /**
      * This method allows the instructors (and the students) to see
