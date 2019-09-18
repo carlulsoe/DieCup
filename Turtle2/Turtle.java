@@ -80,11 +80,9 @@ public class Turtle extends Actor {
      *                 (equal to shortest side).
      */
     public void spiral(int n, double delta) {
-        double width = delta;
         for (int i = 0; i < n; i++) {
-            move(width);
+            move(delta * i);
             turn(360.0/4);
-            width = width + delta;
         }
     }
 
@@ -139,10 +137,8 @@ public class Turtle extends Actor {
      *               (equal to size of smallest square).
      */
     public void squares2(int n, double gap) {
-        double size = gap;
-        for (int i=0; i<n; i++) {
-            square(size);
-            size += gap * 2;
+        for (int i=1; i<=n; i++) {
+            square(gap*i*2);
             jump(-gap, -gap);
         }
     }
@@ -259,9 +255,15 @@ public class Turtle extends Actor {
             sierpinskiCurve(n-1, size/2);
             jump(size/2, 0);
             sierpinskiCurve(n-1, size/2);
-            jump(-size/4, Math.sqrt(Math.pow(size/2, 2) - Math.pow(size/4, 2)));
+            turn(60);
+            jump(size/2, 0);
+            turn(120);
+            jump(size/2, 0);
+            turn(180);
             sierpinskiCurve(n-1, size/2);
-            jump(-size/4, -Math.sqrt(Math.pow(size/2, 2) - Math.pow(size/4, 2)));
+            turn(-120);
+            jump(size/2, 0);
+            turn(120);
         }
         else if (n == 0)    {
             triangle(size);
