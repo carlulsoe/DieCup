@@ -1,6 +1,5 @@
 import java.util.*;
-public class Solver
-{
+public class Solver  {
     private int noOfQueens;
     private int[] queens;
     private int noOfSolutions;
@@ -23,8 +22,8 @@ public class Solver
         }
     }
 
-    private boolean legal(int row, int col) {        
-        
+    private boolean legal(int row, int col) {
+
         for (int i = 1; i < col; i++) {
             if (queens[col - i] == row - i) {
                 return false;
