@@ -38,7 +38,7 @@ public class Solver
         for (int i = 1; i <= row; i++) {
             if (queens[row - i] == col) {
                 return false;
-            }
+            } 
         }
         return true;
     }
