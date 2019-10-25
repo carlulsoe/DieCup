@@ -1,7 +1,6 @@
-import java.lang.reflect.Array;
+
 import java.util.*;
-public class Solver
-{
+public class Solver  {
     private int noOfQueens;
     private int[] queens;
     private int noOfSolutions;
@@ -9,25 +8,27 @@ public class Solver
 
     public void findAllSolutions(int noOfQueens) {
         this.noOfQueens = noOfQueens;
+        printStuff(true);
 
-        ArrayList<Array> solutions = new ArrayList<>();
         queens = new int[noOfQueens];
         positionQueens(0);
-        // solutions.add(queens);
-        printSolution();
+        printStuff(false);
     }
 
     private void positionQueens(int row)  {
         if (row != noOfQueens) {
-            for (int col = 0; col <= noOfQueens; col++) {
+            for (int col = 0; col < noOfQueens; col++) {
                 if (legal(row, col)) {
-                    queens[row] = col; 
+                    queens[row] = col;
+                    if (row == noOfQueens-1)  {
+                        noOfSolutions++;
+                        printSolution();
+                    }
                     positionQueens(row+1);
                 }
             }
         }
     }
-
 
     private boolean legal(int row, int col) {
         // Down left
@@ -43,7 +44,7 @@ public class Solver
             }
         }
         // Down
-        for (int i = 1; i < row; i++) {
+        for (int i = 1; i <= row; i++) {
             if (queens[row - i] == col) {
                 return false;
             }
@@ -52,24 +53,29 @@ public class Solver
         return true;
     }
 
-    private void printSolution() {
-        System.out.println("*****************************");
-        System.out.printf("Solutions for %d queens", noOfQueens);
-        System.out.println("");
-        System.out.println("");
-        for (int solution = 0; solution < noOfSolutions; solution++) {
-            for (int queen = 0; queen < noOfQueens; queen++) {
-                System.out.print(convert(queen, queens[queen]) + " ");
-            }
+    private void printStuff(boolean first)   {
+        if (first)  {
+            System.out.println("*****************************");
+            System.out.printf("Solutions for %d queens", noOfQueens);
+            System.out.println("");
             System.out.println("");
         }
-        System.out.println("");
-        System.out.println("");
-        System.out.printf("A total of %d solutions were found", noOfSolutions);
-        System.out.println("\n*****************************");
+        else    {
+            System.out.println("");
+            System.out.println("");
+            System.out.printf("A total of %d solutions were found", noOfSolutions);
+            System.out.println("\n*****************************");
+        }
     }
 
-    private String convert(int row, int col) {
+    private void printSolution() {
+        for (int queen = 0; queen < noOfQueens; queen++) {
+            System.out.print(convert(queen, queens[queen]) + " ");
+        }
+        System.out.println("");
+    }
+
+    public String convert(int row, int col) {
         col += 1;
         char r = (char) (97 + row);
         return r + Integer.toString(col);
