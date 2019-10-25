@@ -1,6 +1,7 @@
 import java.lang.reflect.Array;
 import java.util.*;
-public class Solver  {
+public class Solver
+{
     private int noOfQueens;
     private int[] queens;
     private int noOfSolutions;
@@ -27,6 +28,7 @@ public class Solver  {
         }
     }
 
+
     private boolean legal(int row, int col) {
         // Down left
         for (int i = 1; i <= row; i++) {
@@ -46,6 +48,7 @@ public class Solver  {
                 return false;
             }
         }
+
         return true;
     }
 
