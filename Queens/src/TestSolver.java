@@ -7,7 +7,7 @@
  */
 public class TestSolver
 {
-    public static void test() {
+    public static void legalTest() {
         Solver s1 = new Solver();
         s1.testLegal(8, 4, 6, 3, 5);
         s1.testLegal(8, 0, 2, 4);
