@@ -29,7 +29,7 @@ public class Solver
                     queens[row] = col;
                     if (row == noOfQueens-1) {
                         noOfSolutions++;
-                        printSolution(); 
+                        printSolution();
                     }
                     positionQueens(row+1);
                 }
