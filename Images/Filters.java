@@ -202,7 +202,7 @@ public class Filters
     public Image noise(int amount) {
         Random r = new Random();
         for (Pixel p : image.getPixels()) {
-            p.setValue(p.getValue() + (r.nextInt((amount+1)*2) - amount - 1));
+            p.setValue(p.getValue() + (r.nextInt(amount*2+1) - amount));
         }
         image.setTitle("noise" + amount + "-" + image.getTitle());        
         image.updateCanvas();
