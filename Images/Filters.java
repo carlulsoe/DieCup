@@ -10,9 +10,7 @@ import java.lang.Math;
  * @author Kurt Jensen
  * @version 2017-08-04
  **/
-public class Filters
-{
-
+public class Filters  {
     private Image image;     // Image on which the filter methods operate
 
     /**
