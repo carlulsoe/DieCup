@@ -1,6 +1,8 @@
 
 public class Main {
     public static void main(String[] args) {
-        TestSolver.legalTest();
+        Solver solver = new Solver();
+        // solver.testLegal(8, 4, 6, 3, 5);
+        solver.findAllSolutions(8);
     }
 }

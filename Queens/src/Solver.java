@@ -1,3 +1,4 @@
+import java.lang.reflect.Array;
 import java.util.*;
 public class Solver
 {
@@ -5,11 +6,15 @@ public class Solver
     private int[] queens;
     private int noOfSolutions;
 
-    public void findAllSolutions(int noOfQueens) {
-        queens = new int[noOfQueens];
-        Arrays.fill(queens, -1);
-        positionQueens(0);
 
+    public void findAllSolutions(int noOfQueens) {
+        this.noOfQueens = noOfQueens;
+
+        ArrayList<Array> solutions = new ArrayList<>();
+        queens = new int[noOfQueens];
+        positionQueens(0);
+        // solutions.add(queens);
+        printSolution();
     }
 
     private void positionQueens(int row)  {
@@ -23,31 +28,45 @@ public class Solver
         }
     }
 
-    private boolean legal(int row, int col) {  
 
+    private boolean legal(int row, int col) {
+        // Down left
         for (int i = 1; i <= row; i++) {
             if (queens[row - i] == col - i) {
                 return false;
             }
         }
+        // Down right
         for (int i = 1; i <= row; i++) {
             if (queens[row - i] == col + i) {
                 return false;
             }
         }
-        for (int i = 1; i <= row; i++) {
+        // Down
+        for (int i = 1; i < row; i++) {
             if (queens[row - i] == col) {
                 return false;
-            } 
+            }
         }
+
         return true;
     }
 
     private void printSolution() {
         System.out.println("*****************************");
+        System.out.printf("Solutions for %d queens", noOfQueens);
         System.out.println("");
         System.out.println("");
+        for (int solution = 0; solution < noOfSolutions; solution++) {
+            for (int queen = 0; queen < noOfQueens; queen++) {
+                System.out.print(convert(queen, queens[queen]) + " ");
+            }
+            System.out.println("");
+        }
         System.out.println("");
+        System.out.println("");
+        System.out.printf("A total of %d solutions were found", noOfSolutions);
+        System.out.println("\n*****************************");
     }
 
     private String convert(int row, int col) {
@@ -70,7 +89,5 @@ public class Solver
         }
         System.out.println();
     }
-
-
 }
 
