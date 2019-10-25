@@ -12,5 +12,6 @@ public class TestSolver
         s1.testLegal(8, 4, 6, 3, 5);
         s1.testLegal(8, 0, 2, 4);
         s1.testLegal(8, 0, 2, 4, 6);
+        
     }
 }
