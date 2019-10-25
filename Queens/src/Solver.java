@@ -1,25 +1,32 @@
-import java.lang.reflect.Array;
+
 import java.util.*;
-public class Solver
-{
+import java.util.stream.Stream;
+
+public class Solver  {
     private int noOfQueens;
     private int[] queens;
     private int noOfSolutions;
+    private boolean showSolutions = true;
 
 
     public void findAllSolutions(int noOfQueens) {
-        System.out.println("*****************************");
-        System.out.printf("Solutions for %d queens", noOfQueens);
-        System.out.println("");
-        System.out.println("");
-        this.noOfQueens = noOfQueens;
+        if (showSolutions) {
+            System.out.println("");
+            Stream.generate(() -> "*").limit(50).forEach(System.out::print);
+            System.out.printf("\nSolutions for %d queens", noOfQueens);
+            System.out.println("");
+            System.out.println("");
+        }
 
+        this.noOfQueens = noOfQueens;
+        noOfSolutions = 0;
         queens = new int[noOfQueens];
         positionQueens(0);
 
-        System.out.println("");
-        System.out.printf("A total of %d solutions were found", noOfSolutions);
-        System.out.println("\n*****************************");
+        if (showSolutions)  {
+            System.out.println("");
+            System.out.printf("A total of %d solutions were found", noOfSolutions);
+        }
     }
 
     private void positionQueens(int row)  {
@@ -29,7 +36,9 @@ public class Solver
                     queens[row] = col;
                     if (row == noOfQueens-1) {
                         noOfSolutions++;
-                        printSolution();
+                        if (showSolutions) {
+                            printSolution();
+                        }
                     }
                     positionQueens(row+1);
                 }
@@ -37,6 +46,25 @@ public class Solver
         }
     }
 
+    public void findNoOfSolutions(int min, int max)    {
+        setShowSolutions(false);
+
+        Stream.generate(() -> "*").limit(50).forEach(System.out::print);
+        System.out.println("\n  Queens      Solutions      Time(ms)      Solutions/ms");
+        for (int i = min; i <= max; i++) {
+            long start = System.currentTimeMillis();
+            findAllSolutions(i);
+            long end = System.currentTimeMillis();
+            int time = Math.max(1, (int)(end-start));
+            System.out.printf("%8d %14d %13d %17d \n", noOfQueens, noOfSolutions, time, noOfSolutions/time);
+        }
+        Stream.generate(() -> "*").limit(50).forEach(System.out::print);
+        setShowSolutions(true);
+    }
+
+    public void setShowSolutions(boolean showSolutions) {
+        this.showSolutions = showSolutions;
+    }
 
     private boolean legal(int row, int col) {
         // Down left
@@ -63,7 +91,7 @@ public class Solver
 
     private void printSolution() {
         for (int queen = 0; queen < noOfQueens; queen++) {
-            System.out.print(convert(queen, queens[queen]) + " ");
+            System.out.printf("%3s ", convert(queen, queens[queen]));
         }
         System.out.println("");
     }
