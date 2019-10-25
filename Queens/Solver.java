@@ -23,22 +23,23 @@ public class Solver
         }
     }
 
-    private boolean legal(int row, int col) {        
-        
-        for (int i = 1; i < col; i++) {
-            if (queens[col - i] == row - i) {
+    private boolean legal(int row, int col) {  
+
+        for (int i = 1; i <= row; i++) {
+            if (queens[row - i] == col - i) {
                 return false;
             }
         }
-        for (int i = 1; i < noOfQueens - col; i++) {
-            if (queens[col + i] == row - i) {
+        for (int i = 1; i <= row; i++) {
+            if (queens[row - i] == col + i) {
                 return false;
             }
         }
-        /*
-        if (queens[col] != 0) {
-            return false;
-        }*/
+        for (int i = 1; i <= row; i++) {
+            if (queens[row - i] == col) {
+                return false;
+            }
+        }
         return true;
     }
 
@@ -69,6 +70,7 @@ public class Solver
         }
         System.out.println();
     }
-    //testLegal(8, 4, 6, 3, 5);
+
+
 }
 
