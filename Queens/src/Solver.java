@@ -8,20 +8,29 @@ public class Solver
 
 
     public void findAllSolutions(int noOfQueens) {
+        System.out.println("*****************************");
+        System.out.printf("Solutions for %d queens", noOfQueens);
+        System.out.println("");
+        System.out.println("");
         this.noOfQueens = noOfQueens;
 
-        ArrayList<Array> solutions = new ArrayList<>();
         queens = new int[noOfQueens];
         positionQueens(0);
-        // solutions.add(queens);
-        printSolution();
+
+        System.out.println("");
+        System.out.printf("A total of %d solutions were found", noOfSolutions);
+        System.out.println("\n*****************************");
     }
 
     private void positionQueens(int row)  {
         if (row != noOfQueens) {
-            for (int col = 0; col <= noOfQueens; col++) {
+            for (int col = 0; col < noOfQueens; col++) {
                 if (legal(row, col)) {
-                    queens[row] = col; 
+                    queens[row] = col;
+                    if (row == noOfQueens-1) {
+                        noOfSolutions++;
+                        printSolution();
+                    }
                     positionQueens(row+1);
                 }
             }
@@ -43,7 +52,7 @@ public class Solver
             }
         }
         // Down
-        for (int i = 1; i < row; i++) {
+        for (int i = 1; i <= row; i++) {
             if (queens[row - i] == col) {
                 return false;
             }
@@ -53,20 +62,10 @@ public class Solver
     }
 
     private void printSolution() {
-        System.out.println("*****************************");
-        System.out.printf("Solutions for %d queens", noOfQueens);
-        System.out.println("");
-        System.out.println("");
-        for (int solution = 0; solution < noOfSolutions; solution++) {
-            for (int queen = 0; queen < noOfQueens; queen++) {
-                System.out.print(convert(queen, queens[queen]) + " ");
-            }
-            System.out.println("");
+        for (int queen = 0; queen < noOfQueens; queen++) {
+            System.out.print(convert(queen, queens[queen]) + " ");
         }
         System.out.println("");
-        System.out.println("");
-        System.out.printf("A total of %d solutions were found", noOfSolutions);
-        System.out.println("\n*****************************");
     }
 
     private String convert(int row, int col) {
