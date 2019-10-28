@@ -12,7 +12,7 @@ public class TestSolver
         s1.findAllSolutions(1);
         s1.findAllSolutions(2);
         s1.findAllSolutions(6);
-        s1.findNoOfSolution(1, 12);
+        s1.findNoOfSolutions(1, 12);
         s1.testLegal(8, 4, 6, 3, 5);
         s1.testLegal(8, 0, 2, 4);
         s1.testLegal(8, 0, 2, 4, 6);
