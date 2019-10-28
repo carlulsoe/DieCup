@@ -30,18 +30,16 @@ public class Solver  {
     }
 
     private void positionQueens(int row)  {
-        if (row != noOfQueens) {
-            for (int col = 0; col < noOfQueens; col++) {
-                if (legal(row, col)) {
-                    queens[row] = col;
-                    if (row == noOfQueens-1) {
-                        noOfSolutions++;
-                        if (showSolutions) {
-                            printSolution();
-                        }
+        for (int col = 0; col < noOfQueens; col++) {
+            if (legal(row, col)) {
+                queens[row] = col;
+                if (row == noOfQueens-1) {
+                    noOfSolutions++;
+                    if (showSolutions) {
+                        printSolution();
                     }
-                    positionQueens(row+1);
                 }
+                positionQueens(row+1);
             }
         }
     }
